@@ -1,0 +1,161 @@
+/* Main container */
+.about-container {
+  background: white;
+  min-height: 90vh;
+  width: 100vw;
+  margin-top: 20px;
+}
+
+/* Header */
+.about-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.about-header h1 {
+  font-size: 58px;
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -2px;
+  width: 700px;
+  text-align: center;
+  color: black;
+}
+
+/* Subtext */
+.about-subtext {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.about-subtext p {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+  width: 850px;
+  text-align: center;
+  color: black;
+  margin: 0;
+}
+
+/* Card section */
+.card-section {
+  margin-top: -80px;
+  background: white;
+  min-height: 70vh;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: -60px;
+}
+
+/* Card */
+.card {
+  width: 290px;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+/* Animation when visible */
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Image */
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Card content */
+.card-content {
+  padding: 22px;
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #0f172a;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-content p {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #64748b;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Buttons */
+.button-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 80vw;
+  margin-left: 150px;
+  margin-top: 10px;
+}
+
+/* Base button */
+.btn {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.35s ease;
+}
+
+/* Primary button */
+.btn.primary {
+  border: 2px solid #0f172a;
+  background: #0f172a;
+  color: white;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+.btn.primary:hover {
+  background: white;
+  color: #0f172a;
+  transform: scale(1.06);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+}
+
+/* Secondary button */
+.btn.secondary {
+  border: 2px solid #d1d5db;
+  background: white;
+  color: #0f172a;
+}
+
+.btn.secondary:hover {
+  background: #0f172a;
+  color: white;
+  border: 2px solid #0f172a;
+  transform: translateX(8px);
+}
