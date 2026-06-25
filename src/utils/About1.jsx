@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About1.css";
+import About from "../components/About";
+import { Link } from "react-router-dom";
 
-import img1 from "../assets/a1.png";
-import img2 from "../assets/a2.png";
-import img3 from "../assets/a3.png";
-import img4 from "../assets/a4.jpeg";
 import Nav from "../components/Nav";
 import abt1 from "../assets/abt1.png";
 import abt2 from "../assets/abt2.jpeg";
@@ -17,54 +15,7 @@ import Footer from "../components/Footer";
 
 function About1() {
 
-    const cardsRef = useRef([]);
-    const [visibleCards, setVisibleCards] = useState([]);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setVisibleCards((prev) => [...prev, entry.target.id]);
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
-
-        cardsRef.current.forEach((card) => {
-            if (card) observer.observe(card);
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
-    const cardData = [
-        {
-            id: "card1",
-            image: img1,
-            title: "Maximize Efficiency",
-            desc: "Streamlined workflows that cut costs and save time.",
-        },
-        {
-            id: "card2",
-            image: img2,
-            title: "Strategic Guidance",
-            desc: "Expert advisors aligned to your business goals.",
-        },
-        {
-            id: "card3",
-            image: img3,
-            title: "24/7 Support",
-            desc: "Round-the-clock assistance whenever you need it.",
-        },
-        {
-            id: "card4",
-            image: img4,
-            title: "Competitive Edge",
-            desc: "Technology that puts you ahead of the competition.",
-        },
-    ];
 
 
 
@@ -138,7 +89,9 @@ function About1() {
 
 
 
-
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
 
 
     return (
@@ -147,7 +100,9 @@ function About1() {
             <div className="about-container-top">
                 <div className="about-container-content-top">
                     <div className="about-header-top">
-                        <h1>Building Remarkable Digital Futures</h1>
+                        <h1>Building Remarkable
+                            <br />
+                            Digital Futures</h1>
                     </div>
 
                     <div className="about-subtext-top">
@@ -156,8 +111,9 @@ function About1() {
                         </p>
                     </div>
                     <div className="button-section-top">
-                        <button className="btn-top primary-top">Our Services ➜</button>
-                        <button className="btn-top secondary-top">View Portfolio</button>
+                        <Link to="/services"><button className="btn-top primary-top">Our Services ➜</button></Link>
+                    <Link to="/portfolio"> <button className="btn-top secondary-top">View Portfolio</button></Link>
+                       
                     </div>
                     <div className="btn-container1-top">
                         <div className="btn1-top">
@@ -179,43 +135,7 @@ function About1() {
                     </div>
                 </div>
             </div>
-            <div style={{ paddingTop: "50px", paddingBottom: "50px" }} className="about-container">
-                <div className="about-header">
-                    <h1>We Build Remarkable Digital Experiences</h1>
-                </div>
-
-                <div className="about-subtext">
-                    <p>
-                        Riveyra Infotech is Kanpur's premier software development company with
-                        over 7 years of proven excellence, delivering reliable and innovative
-                        digital solutions across India and beyond.
-                    </p>
-                </div>
-
-                <div className="card-section">
-                    {cardData.map((card, index) => (
-                        <div
-                            key={card.id}
-                            id={card.id}
-                            ref={(el) => (cardsRef.current[index] = el)}
-                            className={`card ${visibleCards.includes(card.id) ? "show" : ""
-                                }`}
-                            style={{ transitionDelay: `${index * 0.2}s` }}
-                        >
-                            <img src={card.image} alt="" />
-                            <div className="card-content">
-                                <h2>{card.title}</h2>
-                                <p>{card.desc}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="button-section">
-                    <button className="btn primary">Our Story ➜</button>
-                    <button className="btn secondary">Watch Intro</button>
-                </div>
-            </div>
+            <About />
             <section className="about-section2">
 
                 <div className="about-header2">
@@ -246,6 +166,7 @@ function About1() {
 
                 </div>
             </section>
+
             <section className="about-section2 core-values">
 
                 <div className="about-header2">
@@ -311,8 +232,10 @@ function About1() {
                     <h4 style={{ color: "gray" }}>Let's talk about your project. We respond within 2 hours.</h4>
                     <br />
                     <div className="button-section" style={{ marginLeft: "-10px" }}>
-                        <button className="btn primary">Start a Project ➜</button>
-                        <button className="btn secondary">View Our Work</button>
+
+                        <Link to="/career"><button className="btn primary">Start a Project ➜</button></Link>
+                        <Link to="/portfolio"><button className="btn secondary">View Our Work</button></Link>
+                        
                     </div>
                 </div>
 

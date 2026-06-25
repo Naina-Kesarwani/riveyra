@@ -1,13 +1,15 @@
 /* MAIN SECTION */
 .services-section {
-  background: black;
-  color: white;
-  padding: 80px 20px;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  width: 100%;
-  text-align: center;
-  font-family: Arial, sans-serif;
+  
+      background: black;
+    color: white;
+    padding: 80px 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+
 }
 
 /* SUBTITLE */
@@ -27,6 +29,7 @@
   font-weight: 600;
   max-width: 700px;
   margin-inline: auto;
+      padding: 0 40px;
 }
 
 /* DESCRIPTION */
@@ -36,12 +39,14 @@
   font-size: 15px;
   line-height: 1.8;
   color: #d4d4d8;
+      
+    padding: 0 28px;
 }
 
 /* GRID */
 .services-grid {
   margin-top: 70px;
-  padding: 0 20px;
+  
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,4 +111,16 @@
 /* ACTIVE CLASS (JS adds it) */
 .service-card.active .hover-line {
   width: 100%;
+}
+
+@media (max-width: 425px) {
+.services-grid {
+  margin-top: 70px;
+  padding: 0 0px;}
+
+  
+
+.services-section {
+    
+    padding: 80px 0px}
 }

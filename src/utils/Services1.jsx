@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { useEffect, useState } from "react";
 import "./Services1.css";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -9,6 +12,7 @@ import services3 from "../assets/services3.jpeg"
 import services4 from "../assets/services4.jpeg"
 import services5 from "../assets/services5.png"
 import services6 from "../assets/services6.jpeg"
+
 
 
 
@@ -28,6 +32,9 @@ import {
 } from "react-icons/fa";
 
 function Services1() {
+  const [activeSection, setActiveSection] = useState("");
+
+
 
   const processData = [
     {
@@ -99,11 +106,58 @@ function Services1() {
     e.currentTarget.classList.remove("active");
   };
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const cards = document.querySelectorAll(".process-card");
+
+      let closestCard = null;
+      let smallestDistance = Infinity;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+
+        const cardCenter = rect.top + rect.height / 2;
+
+        const viewportCenter = window.innerHeight / 2;
+
+        const distance = Math.abs(cardCenter - viewportCenter);
+
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          closestCard = card;
+        }
+      });
+
+      if (closestCard) {
+        setActiveSection(closestCard.id);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
+
+
+
+
   return (
+
+
+
     <div>
       <Nav />
 
-      <div style={{ paddingTop: "50px" }} className="services-container-top">
+      <div className="services-container-top">
         <div className="services-container-top-content">
           <div className="services-header-top">
             <h1>Deep Expertise,
@@ -115,15 +169,18 @@ function Services1() {
               Nine specialisations. One unified team. We combine technical depth with strategic thinking to build digital products that move the needle.   </p>
           </div>
           <div className="services-section-top">
-            <button className="services-btn services-primary">Our Services ➜</button>
-            <button className="services-btn services-secondary">View Portfolio</button>
+
+            <Link to="/contact"><button className="services-btn services-primary">Contact Us ➜</button></Link>
+
+            <Link to="/portfolio">  <button className="services-btn services-secondary">View Portfolio</button></Link>
+
           </div>
         </div>
       </div>
 
 
 
-      <div style={{ paddingTop: "120px" }} className="services-section">
+      <div className="services-section">
         {/* GRID */}
         <div className="services-grid">
           {services.map((service, index) => (
@@ -164,49 +221,84 @@ function Services1() {
           </p>
         </div>
         <div className="services-process">
-          <a href="#discovery"><h3><div>Discovery ➜</div></h3></a>
-          <a href="#strategy"><h3><div>Strategy ➜</div></h3></a>
-          <a href="#design"><h3><div>Design ➜</div></h3></a>
-          <a href="#build"><h3><div>Build ➜</div></h3></a>
-          <a href="#launch"><h3><div>Launch ➜</div></h3></a>
-          <a href="#grow"><h3><div>Grow </div></h3></a>
-        </div>
-         <div className="process-section">
-
-        {processData.map((item, index) => (
-
-          <div
-            className={`process-card ${index % 2 === 0 ? "normal-card" : "reverse-card"
-              }`}
-              id={item.title.toLowerCase()}
-            key={index}
+          <a
+            href="#discovery"
+            className={activeSection === "discovery" ? "active-nav" : ""}
           >
+            <h3>Discovery ➜</h3>
+          </a>
 
-            {/* IMAGE */}
-            <div className="process-image">
-              <img src={item.image} alt={item.title} />
+          <a
+            href="#strategy"
+            className={activeSection === "strategy" ? "active-nav" : ""}
+          >
+            <h3>Strategy ➜</h3>
+          </a>
+
+          <a
+            href="#design"
+            className={activeSection === "design" ? "active-nav" : ""}
+          >
+            <h3>Design ➜</h3>
+          </a>
+
+          <a
+            href="#build"
+            className={activeSection === "build" ? "active-nav" : ""}
+          >
+            <h3>Build ➜</h3>
+          </a>
+
+          <a
+            href="#launch"
+            className={activeSection === "launch" ? "active-nav" : ""}
+          >
+            <h3>Launch ➜</h3>
+          </a>
+
+          <a
+            href="#grow"
+            className={activeSection === "grow" ? "active-nav" : ""}
+          >
+            <h3>Grow ➜</h3>
+          </a>
+        </div>
+        <div className="process-section">
+
+          {processData.map((item, index) => (
+
+            <div
+              className={`process-card ${index % 2 === 0 ? "normal-card" : "reverse-card"
+                }`}
+              id={item.title.toLowerCase()}
+              key={index}
+            >
+
+              {/* IMAGE */}
+              <div className="process-image">
+                <img src={item.image} alt={item.title} />
+              </div>
+
+              {/* CONTENT */}
+              <div className="process-content">
+
+                <span className="process-number">
+                  {item.number}
+                </span>
+
+                <h1>{item.title}</h1>
+
+                <p>{item.desc}</p>
+
+              </div>
+
             </div>
-
-            {/* CONTENT */}
-            <div className="process-content">
-
-              <span className="process-number">
-                {item.number}
-              </span>
-
-              <h1>{item.title}</h1>
-
-              <p>{item.desc}</p>
-
-            </div>
-
-          </div>
-        ))}
+          ))}
         </div>
       </div>
-     
 
-      
+
+
 
 
 
@@ -216,9 +308,11 @@ function Services1() {
         <br />
         <h4 style={{ color: "gray" }}>Let's talk about your project. We respond within 2 hours.</h4>
         <br />
-        <div className="button-section" style={{ marginLeft: "-10px" }}>
-          <button className="btn primary">Start a Project ➜</button>
-          <button className="btn secondary">View Our Work</button>
+        <div className="button-section" >
+          <Link to="/contact"><button className="btn primary">Contact Us ➜</button></Link>
+          
+          <Link to="/portfolio"><button className="btn secondary">View Our Work</button></Link>
+          
         </div>
       </div>
 

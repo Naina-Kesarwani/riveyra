@@ -1,31 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Nav.css";
 
 import logo from "../assets/r1.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+
   return (
     <nav className="nav">
+
       {/* LOGO */}
-       <Link to="/">
-    <img src={logo} alt="logo" className="nav-logo" />
-  </Link>
+      <Link to="/" className="logo-link">
+        <img src={logo} alt="logo" className="nav-logo" />
+      </Link>
 
-      {/* LINKS */}
-      <div className="nav-links">
-        
-         <Link to="/"><a>Home</a></Link>
-
-      <Link to="/about"><a>About</a></Link>
-      <Link to="/services"><a>Services</a></Link>
-        
-        <a>Portfolio</a>
-        
-        <a>Contact</a>
-
-        <button className="nav-btn">Get Started</button>
+      {/* HAMBURGER */}
+      <div
+        className={`hamburger ${menuOpen ? "active" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+
+      {/* NAV LINKS */}
+      <div className={`nav-links ${menuOpen ? "show" : ""}`}>
+
+        <NavLink
+          to="/"
+          onClick={() => setMenuOpen(false)}
+          className={({ isActive }) => isActive ? "active-link" : ""}
+        >
+          Home
+        </NavLink>
+
+        <NavLink
+          to="/about"
+          onClick={() => setMenuOpen(false)}
+          className={({ isActive }) => isActive ? "active-link" : ""}
+        >
+          About
+        </NavLink>
+
+        <NavLink
+          to="/services"
+          onClick={() => setMenuOpen(false)}
+          className={({ isActive }) => isActive ? "active-link" : ""}
+        >
+          Services
+        </NavLink>
+
+        <NavLink
+          to="/portfolio"
+          onClick={() => setMenuOpen(false)}
+          className={({ isActive }) => isActive ? "active-link" : ""}
+        >
+          Portfolio
+        </NavLink>
+
+        <NavLink
+          to="/career"
+          onClick={() => setMenuOpen(false)}
+          className={({ isActive }) => isActive ? "active-link" : ""}
+        >
+          Career
+        </NavLink>
+
+        <NavLink
+          to="/contact"
+          onClick={() => setMenuOpen(false)}
+          className={({ isActive }) => isActive ? "active-link" : ""}
+        >
+          Contact
+        </NavLink>
+
+        <Link to="/contact">
+          <button className="nav-btn">
+            Get Started
+          </button>
+        </Link>
+
+      </div>
+
     </nav>
   );
 }

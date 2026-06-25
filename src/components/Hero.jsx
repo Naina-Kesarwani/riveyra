@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import { Link } from "react-router-dom";
 
 import main from "../assets/hero1.png";
 
@@ -36,17 +37,30 @@ function Hero() {
         {/* BUTTONS */}
         <div className="hero-buttons">
           <button className="btn primary">Consult Our Experts ➜</button>
-          <button className="btn secondary">View Our Work</button>
+          <Link to="/portfolio"><button className="btn secondary">View Our Work</button></Link>
+          
         </div>
 
         {/* CERTIFIED SLIDER */}
-        <div className="cert-box">
+        {/* <div className="cert-box">
           <p>CERTIFIED BY</p>
 
           <div className="slider">
             {logos.map((img, index) => (
               <div key={index} className="logo-card">
                 <img src={img} alt="cert" />
+              </div>
+            ))}
+          </div>
+        </div> */}
+        {/* CERTIFIED SLIDER */}
+        <div className="cert-box">
+          <p>CERTIFIED BY</p>
+
+          <div className="slider">
+            {[...logos, ...logos].map((img, index) => (
+              <div key={index} className="logo-card">
+                <img src={img} alt="certification" />
               </div>
             ))}
           </div>

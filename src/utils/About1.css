@@ -1,11 +1,14 @@
+
+
+
 .about-container-top {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
 
-  padding-top: 50px;
+  padding: 50px 0px;
 
   /* Background image */
-  background-image: url("../assets/ab1.png");
+  background-image: url("../assets/ab1.jpeg");
   /* adjust path */
   background-size: cover;
   background-position: center;
@@ -18,7 +21,121 @@
   color: white;
 }
 
+.about-container-content-top{
+  padding: 0px 20px;
+}
 
+/* ========================= */
+/* TABLET (<= 1024px)
+/* ========================= */
+@media (max-width: 1024px) {
+  .about-header-top h1 {
+    font-size: 40px;
+    width: 90%;
+  }
+
+  .about-subtext-top p {
+    width: 85%;
+    font-size: 15px;
+  }
+
+  .btn-container1-top {
+    gap: 20px;
+  }
+
+  .btn1-top {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* ========================= */
+/* MOBILE (<= 768px)
+/* ========================= */
+@media (max-width: 768px) {
+
+  .about-container-top {
+    padding-top: 30px;
+    min-height: auto;
+  }
+
+  .about-header-top {
+    margin-top: 90px;
+  }
+
+  .about-header-top h1 {
+    font-size: 28px;
+    width: 80%;
+    letter-spacing: -1px;
+  }
+
+  .about-subtext-top p {
+    width: 90%;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .button-section-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-top {
+    width: 80%;
+    text-align: center;
+  }
+
+  .btn-container1-top {
+    gap: 15px;
+  }
+
+  .btn1-top {
+    width: 45%;
+    height: 110px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE (<= 480px)
+/* ========================= */
+@media (max-width: 480px) {
+
+ 
+ .about-header-top h1 {
+    font-size: 20px;
+    width: 70%;
+  }
+  .about-subtext-top p {
+    font-size: 13px;
+    width: 95%;
+  }
+
+  .btn1-top {
+    width: 100%;
+    height: 100px;
+  }
+
+  .btn1-top h2 {
+    font-size: 26px;
+  }
+
+  .btn1-top p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn1-top {
+    width: 45%;
+  }
+}
+
+@media (max-width: 425px) {
+ .about-header-top h1 {
+    font-size: 16px;
+    width: 50%;
+  }
+}
 
 
 
@@ -26,20 +143,23 @@
   display: flex;
   justify-content: center;
   margin-top: 140px;
+  
 }
 
 .about-header-top h1 {
-  font-size: 70px;
+  font-size: 58px;
   margin: 0;
   line-height: 1.1;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   letter-spacing: -2px;
-  width: 800px;
+  max-width: 100%;
+  width: 100%;
   text-align: center;
   color: white;
   text-align: center;
-  margin-left: 15px;
+  
+
 }
 
 .about-subtext-top {
@@ -68,7 +188,7 @@
   justify-content: center;
   gap: 20px;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 
   margin-top: 20px;
 }
@@ -116,179 +236,23 @@
 
 
 
-/* Main container */
-.about-container {
-  background: white;
-  min-height: 90vh;
-  width: 100vw;
-  margin-top: 20px;
-}
 
-/* Header */
-.about-header {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.about-header h1 {
-  font-size: 58px;
-  margin: 0;
-  line-height: 1.1;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: -2px;
-  width: 700px;
-  text-align: center;
-  color: black;
-}
-
-/* Subtext */
-.about-subtext {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-
-.about-subtext p {
-  font-size: 16px;
-  line-height: 1.8;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 0.5px;
-  width: 850px;
-  text-align: center;
-  color: black;
-  margin: 0;
-}
-
-/* Card section */
-.card-section {
-  margin-top: -80px;
-  background: white;
-  min-height: 70vh;
-  padding: 80px 40px;
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
-  margin-bottom: -60px;
-}
-
-/* Card */
-.card {
-  width: 290px;
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-
-  transform: translateY(80px);
-  opacity: 0;
-  transition: all 0.8s ease;
-}
-
-/* Animation when visible */
-.card.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Hover effect */
-.card:hover {
-  transform: translateY(-10px);
-}
-
-/* Image */
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-/* Card content */
-.card-content {
-  padding: 22px;
-}
-
-.card-content h2 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: #0f172a;
-  font-family: "Poppins", sans-serif;
-}
-
-.card-content p {
-  margin-top: 12px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #64748b;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Buttons */
-.button-section {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
-  width: 80vw;
-  margin-left: 150px;
-  margin-top: 10px;
-}
-
-/* Base button */
-.btn {
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 17px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.35s ease;
-}
-
-/* Primary button */
-.btn.primary {
-  border: 2px solid #3b3e44;
-  background: #0f172a;
-  color: white;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
-}
-
-.btn.primary:hover {
-  background: white;
-  color: #0f172a;
-  transform: scale(1.06);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-}
-
-/* Secondary button */
-.btn.secondary {
-  border: 2px solid #d1d5db;
-  background: white;
-  color: #0f172a;
-}
-
-.btn.secondary:hover {
-  background: #0f172a;
-  color: white;
-  border: 2px solid #0f172a;
-  transform: translateX(8px);
-}
 
 /* BUTTON */
 .btn-container1-top {
   display: flex;
   width: 100%;
-  gap: 30px;
+  gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
 
 }
+
+
+
+
 
 /* CARD */
 .btn1-top {
@@ -359,7 +323,7 @@
   background: #0a0a0a;
   color: #fff;
   width: 100%;
-  padding: 110px 40px;
+  padding: 110px 20px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -633,13 +597,11 @@ Add this inside index.html <head>
 
   border-radius: 28px;
 
-  background: linear-gradient(
-    145deg,
-    #0f172a,
-    #111827
-  );
+  background: linear-gradient(145deg,
+      #0f172a,
+      #111827);
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
   overflow: hidden;
 
@@ -651,7 +613,7 @@ Add this inside index.html <head>
     border 0.45s ease;
 
   box-shadow:
-    0 10px 40px rgba(15,23,42,0.22);
+    0 10px 40px rgba(15, 23, 42, 0.22);
 
   backdrop-filter: blur(10px);
 }
@@ -668,12 +630,10 @@ Add this inside index.html <head>
   width: 70%;
   height: 300%;
 
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.14),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.14),
+      transparent);
 
   transform: rotate(25deg);
 
@@ -689,10 +649,10 @@ Add this inside index.html <head>
 .core-card:hover {
   transform: translateY(-12px);
 
-  border: 1px solid rgba(255,255,255,0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 
   box-shadow:
-    0 25px 70px rgba(15,23,42,0.45);
+    0 25px 70px rgba(15, 23, 42, 0.45);
 }
 
 /* ICON */
@@ -708,9 +668,9 @@ Add this inside index.html <head>
 
   font-size: 34px;
 
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
   margin-bottom: 28px;
 
@@ -723,7 +683,7 @@ Add this inside index.html <head>
 .core-card:hover .core-icon {
   transform: scale(1.08);
 
-  background: rgba(255,255,255,0.14);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 /* TITLE */
@@ -765,3 +725,4 @@ Add this inside index.html <head>
     max-width: 420px;
   }
 }
+

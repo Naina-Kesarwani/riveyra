@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About.css";
+import { Link } from "react-router-dom";
 
 import img1 from "../assets/a1.png";
 import img2 from "../assets/a2.png";
@@ -7,27 +8,28 @@ import img3 from "../assets/a3.png";
 import img4 from "../assets/a4.jpeg";
 
 function About() {
-  const cardsRef = useRef([]);
-  const [visibleCards, setVisibleCards] = useState([]);
+
+  const cardRefs = useRef([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleCards((prev) => [...prev, entry.target.id]);
+            entry.target.classList.add("show");
           }
         });
       },
       { threshold: 0.2 }
     );
 
-    cardsRef.current.forEach((card) => {
+    cardRefs.current.forEach((card) => {
       if (card) observer.observe(card);
     });
 
     return () => observer.disconnect();
   }, []);
+
 
   const cardData = [
     {
@@ -56,45 +58,44 @@ function About() {
     },
   ];
 
+
+
+ 
+
   return (
     <div className="about-container">
-      <div className="about-header">
-        <h1>We Build Remarkable Digital Experiences</h1>
+      <div className="about-container-content">
+        <div className="about-container-content-h1">
+          <h1>We Build Remarkable Digital Experiences</h1>
+        </div>
+        <div className="about-container-content-p">
+          <p>Riveyra Infotech is Kanpur's premier software development company with over 7 years of proven excellence, delivering reliable and innovative digital solutions across India and beyond.
+
+          </p>
+        </div>
       </div>
 
-      <div className="about-subtext">
-        <p>
-          Riveyra Infotech is Kanpur's premier software development company with
-          over 7 years of proven excellence, delivering reliable and innovative
-          digital solutions across India and beyond.
-        </p>
-      </div>
-
-      <div className="card-section">
-        {cardData.map((card, index) => (
-          <div
-            key={card.id}
-            id={card.id}
-            ref={(el) => (cardsRef.current[index] = el)}
-            className={`card ${
-              visibleCards.includes(card.id) ? "show" : ""
-            }`}
-            style={{ transitionDelay: `${index * 0.2}s` }}
-          >
-            <img src={card.image} alt="" />
-            <div className="card-content">
-              <h2>{card.title}</h2>
+      <div className="about-container-main-cards">
+        <div className="about-container-cards">
+          {cardData.map((card, index) => (
+            <div
+              key={card.id}
+              ref={(el) => (cardRefs.current[index] = el)}
+              className="about-card"
+            >
+              <img src={card.image} alt={card.title} />
+              <h3>{card.title}</h3>
               <p>{card.desc}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <div className="button-section">
-        <button className="btn primary">Our Story ➜</button>
-        <button className="btn secondary">Watch Intro</button>
+      <div className="about-container-buttons">
+        <Link to="/about"><button className="about-container-primary-button">Our Story ➜</button></Link>
+        <Link to="/about"><button className="about-container-secondary-button">Watch Intro</button></Link>
       </div>
     </div>
+
   );
 }
 

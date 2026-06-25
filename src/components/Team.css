@@ -27,8 +27,7 @@
   overflow: hidden;
   border: 2px solid white;
   border-radius: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -155,4 +154,96 @@
 .btn1:hover h2,
 .btn1:hover p {
   color: black;
+}
+
+
+@media (max-width: 798px) {
+  .team-content {
+  
+
+  padding: 0px 80px;}
+
+
+}
+
+@media (max-width: 650px) {
+ .team-full-container {
+    min-height: auto;
+  }
+
+  .team-container {
+    min-height: auto;
+  }
+
+  .team-container {
+    width: 92%;
+    border-radius: 20px;
+  }
+
+  .team-content {
+    padding: 40px 24px;
+    max-width: 100%;
+  }
+
+  .team-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .team-content h1 {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+
+  .team-container-p,
+  .team-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 18px;
+  }
+
+  .btn-container1 {
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .btn1 {
+    width: 90px;
+    height: 90px;
+  }
+
+  .btn1 h2 {
+    font-size: 24px;
+  }
+
+  .btn1 p {
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 6px;
+  }
+}
+
+
+
+@media (max-width: 360px) {
+  .team-content {
+    padding: 30px 16px;
+  }
+
+  .team-content h1 {
+    font-size: 34px;
+  }
+
+  .btn1 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .btn1 h2 {
+    font-size: 20px;
+  }
+
+  .btn1 p {
+    font-size: 9px;
+  }
 }

@@ -13,58 +13,57 @@ import {
 function Dev() {
   const cardsRef = useRef([]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.querySelector(".dev-section");
+useEffect(() => {
+  const handleScroll = () => {
+    const section = document.querySelector(".dev-section");
 
-      if (!section) return;
+    if (!section) return;
 
-      const rect = section.getBoundingClientRect();
+    const rect = section.getBoundingClientRect();
 
-      const progress = Math.min(
-        Math.max((-rect.top) / window.innerHeight, 0),
-        4
+    const scrollProgress =
+      Math.max(0, -rect.top) / window.innerHeight;
+
+    cardsRef.current.forEach((card, index) => {
+      if (!card) return;
+
+      const localProgress = Math.min(
+        Math.max(scrollProgress - index * 0.6, 0),
+        1
       );
 
-      cardsRef.current.forEach((card, index) => {
-        if (!card) return;
+      const y = 180 - localProgress * 180;
+      const opacity = localProgress;
 
-        const reveal = progress - index;
+      card.style.transform = `translateY(${y}px)`;
+      card.style.opacity = opacity;
+    });
+  };
 
-        if (reveal > 0) {
-          card.style.transform = `translateY(0px)`;
-          card.style.opacity = "1";
-        } else {
-          card.style.transform = `translateY(180px)`;
-          card.style.opacity = "0";
-        }
-      });
-    };
+  window.addEventListener("scroll", handleScroll);
 
-    window.addEventListener("scroll", handleScroll);
+  handleScroll();
 
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
  const cards = [
   {
     icon: <FaLaptopCode />,
     title: "Strategic Technology Consulting",
 
-    desc: "We help businesses align technology with growth goals through digital transformation strategies, architecture planning, and scalable innovation solutions.",
-
-    button: "View Consulting Services",
+   desc: "We help businesses align technology with growth through digital transformation, architecture planning, and scalable innovation.",
+      button: "View Consulting Services",
   },
 
   {
     icon: <FaCode />,
     title: "Digital Product Development & Engineering",
 
-    desc: "From modern web platforms to enterprise software, we build high-performance digital products with scalable architecture and seamless user experiences.",
-
-    button: "View Product Engineering Services",
+  desc: "We build high-performance digital products with scalable architecture and seamless UX experiences optimized for performance and growth.",
+  button: "View Engineering Services",
   },
 
   {
@@ -73,7 +72,7 @@ function Dev() {
 
     desc: "Leverage AI, automation, and advanced analytics to optimize operations, predict trends, and deliver intelligent customer experiences at scale.",
 
-    button: "View Artificial Intelligence Services",
+    button: "View AI Services",
   },
 
   {

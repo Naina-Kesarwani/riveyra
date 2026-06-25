@@ -20,7 +20,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const cards = [
   {
     id: 1,
-    title: "SDRF",
+    title: "NDRF",
     p:"State-wide file management platform with one-click retrieval, audit trails, and enterprise-grade security.",
     image:
       c1,
@@ -45,7 +45,7 @@ const cards = [
   {
     id: 4,
     title: "DGFASLI",
-    p:"Full government portal redesign with 24/7 cross-device accessibility, WCAG compliance, and dramatic load-time improvements.",
+    p:"Full government portal redesign with WCAG compliance, cross-device accessibility, and faster performance.",
     image:
       c4,
   },
@@ -76,7 +76,7 @@ const cards = [
   {
     id: 4,
     title: "DGFASLI",
-    p:"Full government portal redesign with 24/7 cross-device accessibility, WCAG compliance, and dramatic load-time improvements.",
+    p:"Full government portal redesign with WCAG compliance, cross-device accessibility, and faster performance.",
     image:
       c4,
   },
