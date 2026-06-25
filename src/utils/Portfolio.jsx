@@ -7,6 +7,8 @@ import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -54,6 +56,16 @@ function Portfolio() {
                 </div>
             </div>
             <Footer />
+           
+            {/* WHATSAPP */}
+                  <a
+                    href="https://wa.me/919876543210"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="whatsapp"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} />
+                  </a>
         </div>
     )
 }

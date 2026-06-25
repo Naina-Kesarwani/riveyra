@@ -11,6 +11,9 @@ import abt4 from "../assets/abt4.jpeg";
 import abt5 from "../assets/abt5.jpeg";
 import abt6 from "../assets/abt6.jpeg";
 import Footer from "../components/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
 
 
 function About1() {
@@ -241,6 +244,15 @@ function About1() {
 
             </section>
             <Footer />
+            {/* WHATSAPP */}
+      <a
+        href="https://wa.me/919876543210"
+        target="_blank"
+        rel="noreferrer"
+        className="whatsapp"
+      >
+        <FontAwesomeIcon icon={faWhatsapp} />
+      </a>
 
         </div>
     );

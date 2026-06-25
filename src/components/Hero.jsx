@@ -12,6 +12,7 @@ import i4 from "../assets/i4.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
+
 function Hero() {
   const logos = [i1, i2, i3, i4, i1, i2];
 

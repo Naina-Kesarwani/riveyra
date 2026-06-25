@@ -12,6 +12,8 @@ import services3 from "../assets/services3.jpeg"
 import services4 from "../assets/services4.jpeg"
 import services5 from "../assets/services5.png"
 import services6 from "../assets/services6.jpeg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -318,6 +320,16 @@ function Services1() {
 
 
       <Footer />
+
+      {/* WHATSAPP */}
+            <a
+              href="https://wa.me/919876543210"
+              target="_blank"
+              rel="noreferrer"
+              className="whatsapp"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+            </a>
     </div>
   );
 }

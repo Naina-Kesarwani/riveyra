@@ -5,10 +5,12 @@ import Footer from '../components/Footer'
 import "./Contact.css"
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://riveyra-backend.onrender.com";
 
 
 function Contact() {
@@ -303,6 +305,16 @@ function Contact() {
 
             <Footer />
             <ToastContainer position="top-right" autoClose={3000} />
+         
+            {/* WHATSAPP */}
+                  <a
+                    href="https://wa.me/919876543210"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="whatsapp"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} />
+                  </a>
         </div>
     )
 }

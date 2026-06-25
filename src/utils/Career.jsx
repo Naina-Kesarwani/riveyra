@@ -7,6 +7,9 @@ import CareerScroll from "./CareerScroll";
 import Footer from "../components/Footer";
 import careerVideo from "../assets/career.mp4";
 import {Link} from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
 
 function Career() {
 
@@ -261,6 +264,16 @@ function Career() {
                 </div>
             </div>
             <Footer />
+         
+            {/* WHATSAPP */}
+                  <a
+                    href="https://wa.me/919876543210"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="whatsapp"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} />
+                  </a>
 
         </>
     );
